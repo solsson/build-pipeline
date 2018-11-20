@@ -83,8 +83,8 @@ func validateTaskRunAndTask(c *Reconciler, tr v1alpha1.TaskRun, task *v1alpha1.T
 			}
 			// Validate the type of resource match
 			if string(inputResource.Type) != inputResourceType {
-				return fmt.Errorf("Mismatch of input resource type %q "+
-					"between task %q and task %q", inputResourceType,
+				return fmt.Errorf("Mismatch of input resource type %q != %q "+
+					"between task %q and task %q", inputResource.Type, inputResourceType,
 					tr.Name, task.Name)
 			}
 		}
@@ -109,8 +109,8 @@ func validateTaskRunAndTask(c *Reconciler, tr v1alpha1.TaskRun, task *v1alpha1.T
 			}
 			// Validate the type of resource match
 			if string(outputResource.Type) != outputResourceType {
-				return fmt.Errorf("Mismatch of output resource type %q "+
-					"between task %q and task %q", outputResourceType,
+				return fmt.Errorf("Mismatch of output resource type %q != %q "+
+					"between task %q and task %q", outputResource.Type, outputResourceType,
 					tr.Name, task.Name)
 			}
 		}
