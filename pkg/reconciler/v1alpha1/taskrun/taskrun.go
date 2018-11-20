@@ -178,7 +178,7 @@ func (c *Reconciler) Reconcile(ctx context.Context, key string) error {
 
 func (c *Reconciler) reconcile(ctx context.Context, tr *v1alpha1.TaskRun) error {
 	if err := validateTaskRun(c, tr); err != nil {
-		c.Logger.Error("Failed to validate taskrun %s with error %v", tr.Name, err)
+		c.Logger.Errorf("Failed to validate taskrun %s with error %v", tr.Name, err)
 		tr.Status.SetCondition(&duckv1alpha1.Condition{
 			Type:    duckv1alpha1.ConditionSucceeded,
 			Status:  corev1.ConditionFalse,
